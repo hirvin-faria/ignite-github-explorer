@@ -1,7 +1,8 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    mode: 'development',
+    mode: 'development',                                                        // configuracao de ambiente de desenvolvimento ou producao do webpack
     entry: path.resolve(__dirname, 'src', 'index.jsx'),                         // arquivo de entrada da aplicação
     output: {
         path: path.resolve(__dirname, 'dist'),                                  // pasta onde sera gerada o bundle
@@ -10,6 +11,11 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.jsx'],                                            // extenções que o webpack deve resolver dentro da aplicação
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, 'public', 'index.html')           // injeta o script de importacao do bundle.js dentro do index.html
+        })
+    ],
     module: {                                                                   // configuração/regras para resolução de arquivos do webpack
         rules: [
             {
