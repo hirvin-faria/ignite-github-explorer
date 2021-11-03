@@ -1,9 +1,11 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const isDevelopment = process.env.NODE_ENV !== 'production';
+
 module.exports = {
-    mode: 'development',                                                        // configuracao de ambiente de desenvolvimento ou producao do webpack
-    devtool: 'eval-source-map',                                                 // configuracao de source map do projeto
+    mode: isDevelopment ? 'development' : 'production',                         // configuracao de ambiente de desenvolvimento ou producao do webpack
+    devtool: isDevelopment ? 'eval-source-map' : 'source-map',                  // configuracao de source map do projeto
     entry: path.resolve(__dirname, 'src', 'index.jsx'),                         // arquivo de entrada da aplicação
     output: {
         path: path.resolve(__dirname, 'dist'),                                  // pasta onde sera gerada o bundle
