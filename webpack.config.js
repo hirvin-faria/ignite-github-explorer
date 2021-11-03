@@ -1,6 +1,7 @@
 const path = require('path');
 
 module.exports = {
+    mode: 'development',
     entry: path.resolve(__dirname, 'src', 'index.jsx'),                         // arquivo de entrada da aplicação
     output: {
         path: path.resolve(__dirname, 'dist'),                                  // pasta onde sera gerada o bundle
