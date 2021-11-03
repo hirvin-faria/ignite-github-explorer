@@ -11,6 +11,11 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.jsx'],                                            // extenções que o webpack deve resolver dentro da aplicação
     },
+    devServer: {
+        static: {
+            directory: path.resolve(__dirname, 'public'),                         // configuração do servidor de desenvolvimento do webpack
+        }
+    },
     plugins: [
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'public', 'index.html')           // injeta o script de importacao do bundle.js dentro do index.html
