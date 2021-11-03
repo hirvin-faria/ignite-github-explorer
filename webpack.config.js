@@ -31,6 +31,16 @@ module.exports = {
                 exclude: /node_modules/,                                        // expressao regular de arquivos a ser excluidos
                 use: 'babel-loader'                                             // plugin do babel para integração do webpack
             },
+            {
+                test: /\.css$/,
+                exclude: /node_modules/,
+                use:['style-loader', 'css-loader']
+            },
+            {
+                test: /\.scss$/,
+                exclude: /node_modules/,
+                use:['style-loader', 'css-loader', 'sass-loader']
+            }
         ],
     }
 };
