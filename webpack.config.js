@@ -7,13 +7,13 @@ const isDevelopment = process.env.NODE_ENV !== 'production';
 module.exports = {
     mode: isDevelopment ? 'development' : 'production',                         // configuracao de ambiente de desenvolvimento ou producao do webpack
     devtool: isDevelopment ? 'eval-source-map' : 'source-map',                  // configuracao de source map do projeto
-    entry: path.resolve(__dirname, 'src', 'index.jsx'),                         // arquivo de entrada da aplicação
+    entry: path.resolve(__dirname, 'src', 'index.tsx'),                         // arquivo de entrada da aplicação
     output: {
         path: path.resolve(__dirname, 'dist'),                                  // pasta onde sera gerada o bundle
         filename: 'bundle.js'                                                   // nome do arquivo do bundle
     },
     resolve: {
-        extensions: ['.js', '.jsx'],                                            // extenções que o webpack deve resolver dentro da aplicação
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],                                            // extenções que o webpack deve resolver dentro da aplicação
     },
     devServer: {
         static: {
@@ -30,7 +30,7 @@ module.exports = {
     module: {                                                                   // configuração/regras para resolução de arquivos do webpack
         rules: [
             {
-                test: /\.jsx$/,                                                 // expressao regular para identificar o arquivo
+                test: /\.(j|t)sx$/,                                             // expressao regular para identificar o arquivo
                 exclude: /node_modules/,                                        // expressao regular de arquivos a ser excluidos
                 use: {
                     loader: 'babel-loader',                                     // plugin do babel para integração do webpack
